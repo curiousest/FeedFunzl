@@ -1,0 +1,42 @@
+{
+    "type": "datamodel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ProductCategory",
+        "designer|userAlias": "productCategory"
+    },
+    "id": "ExtBox1-ext-gen11319",
+    "designerId": "acc13e6a-d625-402d-b144-13358bc653e9",
+    "cn": [
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field31",
+                "name": "name"
+            },
+            "designerId": "94a42df3-6071-44dc-85b1-cebba1bee960"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field32",
+                "name": "parentCategory"
+            },
+            "designerId": "23720d8b-7916-499c-ad40-3354d2e96219"
+        }
+    ]
+}

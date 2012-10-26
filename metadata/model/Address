@@ -1,0 +1,81 @@
+{
+    "type": "datamodel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Address",
+        "designer|userAlias": "address"
+    },
+    "id": "ExtBox1-ext-gen6467",
+    "designerId": "da84f99e-a3d3-495e-9900-9ad4c54c5f98",
+    "cn": [
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field3",
+                "name": "address1"
+            },
+            "designerId": "bd4ff5c2-9cb9-4367-9565-381d3b72070a"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field10",
+                "name": "address2"
+            },
+            "designerId": "8a8a518a-30aa-4c15-a3b3-80ecd12acde4"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field11",
+                "name": "town"
+            },
+            "designerId": "f0df4701-b0a3-4961-a3ab-9e4d4e77077c"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field12",
+                "name": "county"
+            },
+            "designerId": "ad0bba06-e08a-4d50-82e1-817bbea27ec7"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field13",
+                "name": "postcode"
+            },
+            "designerId": "9cfaa7bc-a588-48bd-b794-371fb423c5b8"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "type": "libraryresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "basePath": "sdk/",
+        "debug": true,
+        "includeJs": false
+    },
+    "id": "ExtBox1-ext-gen3680",
+    "designerId": "d9a101a7-b4c4-4faf-90d7-a97163e0735e"
+}

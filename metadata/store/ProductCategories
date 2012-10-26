@@ -1,0 +1,72 @@
+{
+    "type": "jsonpstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ProductCategories",
+        "designer|userAlias": "productCategories",
+        "autoLoad": true,
+        "model": "Product",
+        "storeId": "ProductCategories"
+    },
+    "id": "ExtBox1-ext-gen15757",
+    "designerId": "da717409-1dc1-47af-8761-6d4fdbab6d60",
+    "cn": [
+        {
+            "type": "restproxy",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyRestProxy1",
+                "url": "http://funzl-services.appspot.com/data/ProductCategory"
+            },
+            "designerId": "cbf610d7-8ee7-4d1b-a1f6-0032b244e30e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "setParentCategory",
+                "fn": "setParentCategory",
+                "designer|params": [
+                    "parentCategoryID"
+                ],
+                "implHandler": [
+                    "var newFilter = {};\r",
+                    "newFilter['property'] = 'parentCategory';\r",
+                    "newFilter['value'] = parentCategoryID;\r",
+                    "var filterArray = [];\r",
+                    "filterArray[0] = newFilter;\r",
+                    "this.setFilters(filterArray);"
+                ]
+            },
+            "designerId": "80e8e2c4-644b-4b8d-8526-66e1079f2ec3"
+        },
+        {
+            "type": "filter",
+            "reference": {
+                "name": "filters",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyFilter1",
+                "property": "parentCategory",
+                "value": [
+                    "c77295d0-a33a-44f7-a382-e53750f819d5"
+                ]
+            },
+            "designerId": "cffffedb-59b0-43ec-aa53-749c663cf7c9"
+        }
+    ]
+}

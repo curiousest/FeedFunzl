@@ -1,0 +1,35 @@
+{
+    "type": "list",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ProductList",
+        "designer|userAlias": "productList",
+        "designer|displayName": "CustomerList",
+        "id": "productList",
+        "store": "Products"
+    },
+    "id": "ExtBox1-ext-gen19369",
+    "designerId": "5054498f-6347-4f35-89ea-13146f1ee9f3",
+    "cn": [
+        {
+            "type": "template",
+            "reference": {
+                "name": "itemTpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "itemTpl",
+                "implHandler": [
+                    "{name}, {code}"
+                ],
+                "designer|displayName": "itemTpl"
+            },
+            "designerId": "c05e4b99-4e34-4e4f-88c8-5a553d48e382"
+        }
+    ]
+}

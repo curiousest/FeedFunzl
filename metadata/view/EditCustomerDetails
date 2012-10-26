@@ -1,0 +1,200 @@
+{
+    "type": "formpanel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "EditCustomerDetails",
+        "data": null,
+        "id": null,
+        "itemId": "editCustomerDetails",
+        "layout": "vbox",
+        "scrollable": [
+            "vertical"
+        ],
+        "url": ""
+    },
+    "id": "ExtBox1-ext-gen14178",
+    "designerId": "329191f7-78cf-4ec3-a5c1-e0305b05253d",
+    "cn": [
+        {
+            "type": "fieldset",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyFieldSet",
+                "designer|displayName": "BasicCustomerInfo",
+                "title": "Basic Customer Info."
+            },
+            "designerId": "42f584e1-8432-4e17-a089-9a5ae9aa84e7",
+            "cn": [
+                {
+                    "type": "textfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyTextField",
+                        "designer|displayName": "CustomerName",
+                        "label": "Customer Name",
+                        "name": "name"
+                    },
+                    "designerId": "b8730153-ce15-41ff-86d5-77bdb6733b4a"
+                },
+                {
+                    "type": "emailfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyEmailField",
+                        "designer|displayName": "CustomerEmail",
+                        "label": "Customer Email",
+                        "name": "email",
+                        "placeHolder": "email@example.com"
+                    },
+                    "designerId": "9424bde0-5545-412e-ad4a-b0dbecde6126"
+                },
+                {
+                    "type": "numberfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyNumberField",
+                        "designer|displayName": "CustomerPhoneNumber",
+                        "label": "Customer Phone Number",
+                        "name": "phoneNo"
+                    },
+                    "designerId": "4b664df5-e797-4132-8316-fb6b3af2c47a"
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "setRecord",
+                "fn": "setRecord",
+                "designer|params": [
+                    "record"
+                ],
+                "implHandler": [
+                    "this.callParent([record]);\r",
+                    "/*** uncomment for array of contacts text fields to be displayed\r",
+                    "if (this.items.length <= 3)\r",
+                    "{\r",
+                    "    var contacts = record.data.contacts;\r",
+                    "    for (var contact in contacts){\r",
+                    "        var contactFieldSet = Ext.create('Ext.form.FieldSet',{\r",
+                    "            title: 'Contact ' + contact\r",
+                    "        });\r",
+                    "        this.add(contactFieldSet);\r",
+                    "        var title = Ext.create('Ext.field.Text',{value:contacts[contact].title, label:'Title'}),\r",
+                    "            fname = Ext.create('Ext.field.Text',{value:contacts[contact].firstName, label:'First Name'}),\r",
+                    "            lname = Ext.create('Ext.field.Text',{value:contacts[contact].lastName, label:'Last Name'}),\r",
+                    "            email = Ext.create('Ext.field.Text',{value:contacts[contact].email, label:'Email'}),\r",
+                    "            mobile = Ext.create('Ext.field.Text',{value:contacts[contact].mobile, label:'Mobile'}),\r",
+                    "            work = Ext.create('Ext.field.Text',{value:contacts[contact].work, label:'Work'});\r",
+                    "        contactFieldSet.add(title);\r",
+                    "        contactFieldSet.add(fname);\r",
+                    "        contactFieldSet.add(lname);\r",
+                    "        contactFieldSet.add(email);\r",
+                    "        contactFieldSet.add(mobile);\r",
+                    "        contactFieldSet.add(work);\r",
+                    "    }\r",
+                    "}*/"
+                ]
+            },
+            "designerId": "979bc153-5270-4c19-8efc-e3991b03703f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getFields",
+                "fn": "getFields",
+                "designer|params": [
+                    "byName"
+                ],
+                "implHandler": [
+                    "var fields = this.callParent([byName]);\r",
+                    "/***uncomment & debug to enable deep nesting of form names\r",
+                    "//for each field\r",
+                    "for (var field in fields){\r",
+                    "    //split the field into a dot-separated array\r",
+                    "    var fieldArray = field.split(\".\");\r",
+                    "\r",
+                    "    //if the object is nested\r",
+                    "    if (fieldArray.length > 1){\r",
+                    "\r",
+                    "        var tempHolder = fields[field];\r",
+                    "        var currentLocation = fields;\r",
+                    "        var previousLocation;\r",
+                    "        var item;\r",
+                    "\r",
+                    "        //for each level of nesting\r",
+                    "        for (item in fieldArray){\r",
+                    "            previousLocation = currentLocation;\r",
+                    "            //if the object at that level doesn't exist, add it\r",
+                    "            if (!currentLocation.hasOwnProperty(fieldArray[item])){\r",
+                    "                currentLocation[fieldArray[item]] = {};\r",
+                    "            }\r",
+                    "            //update the current location one level deeper\r",
+                    "            currentLocation = currentLocation[fieldArray[item]];\r",
+                    "        }\r",
+                    "        //set the value of the deepest nested object to be the original object value\r",
+                    "        previousLocation[item] = tempHolder;\r",
+                    "    }\r",
+                    "}*/\r",
+                    "return fields;"
+                ]
+            },
+            "designerId": "adf3f117-6e95-43bf-82ef-38532c9d2b6f"
+        },
+        {
+            "type": "delegateeventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onChange",
+                "fn": "onChange",
+                "implHandler": [
+                    "if (oldValue){\r",
+                    "    var tempValues = {};\r",
+                    "    tempValues[textfield.getName()] = newValue;\r",
+                    "    var tempRecord = this.getRecord();\r",
+                    "    tempRecord.mergeData(tempValues);\r",
+                    "    this.setRecord(tempRecord);\r",
+                    "}"
+                ],
+                "name": "change",
+                "designer|targetType": "Ext.field.Text",
+                "delegate": "textfield"
+            },
+            "designerId": "e124813b-c765-4e7c-9e88-06ee003ae07b"
+        }
+    ]
+}

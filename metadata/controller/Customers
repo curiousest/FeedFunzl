@@ -1,0 +1,435 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Customers",
+        "designer|userAlias": "customers",
+        "models": [
+            "Customer"
+        ],
+        "stores": [
+            "Customers"
+        ],
+        "views": [
+            "MyContainer"
+        ]
+    },
+    "id": "ExtBox1-ext-gen10568",
+    "designerId": "ad209eea-b071-48e4-bc3c-428dcc95b7a1",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "init",
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "8e5f5b45-69e3-4700-b211-24a790fe5c4f"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "launch",
+                "fn": "launch",
+                "implHandler": [
+                    "var detailsNav = this.getDetailsNav();\r",
+                    "var menuNav = this.getMenuNav();\r",
+                    "var customerList = Ext.create('Funzl.view.CustomerList');\r",
+                    "var menuList = Ext.create('Funzl.view.MenuList');\r",
+                    "detailsNav.push(customerList);\r",
+                    "menuNav.push(menuList);\r",
+                    "\r",
+                    "this.loadCustomers();\r",
+                    "\r",
+                    "Ext.getStore('Customers').load();\r",
+                    ""
+                ]
+            },
+            "designerId": "785dc715-045d-4d6b-a6e3-5490297b764c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onProductCategoryListItemTap",
+                "fn": "onProductCategoryListItemTap",
+                "implHandler": [
+                    "this.loadNextProductLevel(record.internalId, dataview.level + 1);"
+                ],
+                "name": "itemtap",
+                "designer|targetType": "ProductCategoryList",
+                "designer|controlQuery": "productCategoryList"
+            },
+            "designerId": "f3a9ebb7-1503-411a-93e6-f2cf51f07ef3"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onCustomerListItemTap",
+                "fn": "onCustomerListItemTap",
+                "implHandler": [
+                    "//pass on the record and a reference to the store (for updating)\r",
+                    "var customerDetails = Ext.create('Funzl.view.CustomerDetails');\r",
+                    "customerDetails.setRecord(record);\r",
+                    "\r",
+                    "var detailView = this.getCustomerDetails();\r",
+                    "this.getDetailsNav().push(customerDetails);\r",
+                    "this.getMenuNav().push(Ext.create('Funzl.view.DeeperMenuList'));\r",
+                    "\r",
+                    "this.getEditButton().show();"
+                ],
+                "name": "itemtap",
+                "designer|targetType": "CustomerList",
+                "designer|controlQuery": "customerList"
+            },
+            "designerId": "669e9b09-67ae-4369-a574-a140ae14bb5f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "detailsNav",
+                "ref": "detailsNav",
+                "selector": "#detailsNav"
+            },
+            "designerId": "5419c762-45c9-4966-9c21-319db3681433"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "customerList",
+                "ref": "customerList",
+                "selector": "customerList"
+            },
+            "designerId": "84f56da8-e93a-4aeb-8e35-3527e61ce7b7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "menuNav",
+                "ref": "menuNav",
+                "selector": "#menuNav"
+            },
+            "designerId": "89518e1d-c422-436d-a56b-db65a9049f73"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "customerDetails",
+                "ref": "customerDetails",
+                "selector": "customerDetails"
+            },
+            "designerId": "657867ef-a58b-41a6-b6ce-bfddba9cac3e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onMenuListItemTap",
+                "fn": "onMenuListItemTap",
+                "implHandler": [
+                    "var itemTitle = record.raw.title;\r",
+                    "if (itemTitle == 'Customers'){\r",
+                    "    var detailsNav = this.getDetailsNav();\r",
+                    "    detailsNav.reset();\r",
+                    "    var customerList = Ext.create('Funzl.view.CustomerList');\r",
+                    "    detailsNav.push(customerList);\r",
+                    "}"
+                ],
+                "name": "itemtap",
+                "designer|targetType": "MenuList",
+                "designer|controlQuery": "menuList"
+            },
+            "designerId": "b3007f6a-2b71-4a31-81e2-411806877c56"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onDeeperMenuListItemTap",
+                "fn": "onDeeperMenuListItemTap",
+                "implHandler": [
+                    "var itemTitle = record.raw.title;\r",
+                    "if (itemTitle == 'Product Catalogue'){\r",
+                    "    this.loadNextProductLevel(\"c7280f44-dc93-42ac-81e3-6442b01582d8\",1);\r",
+                    "}"
+                ],
+                "name": "itemtap",
+                "designer|targetType": "DeeperMenuList",
+                "designer|controlQuery": "deeperMenuList"
+            },
+            "designerId": "f2a50d51-bc19-43da-a181-baf74abd4c2a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadCustomers",
+                "fn": "loadCustomers",
+                "implHandler": [
+                    "var self = this;\r",
+                    "\r",
+                    "Ext.getStore('Customers').on('load', function(store, records){\r",
+                    "    Ext.getStore('Customers').setData(records);\r",
+                    "\r",
+                    "});"
+                ]
+            },
+            "designerId": "5429b126-9f73-4470-84cb-4cb8a78ed054"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadProductCategories",
+                "fn": "loadProductCategories",
+                "designer|params": [
+                    "productCategoriesStore, parentCategoryID, level"
+                ],
+                "implHandler": [
+                    "var self = this;\r",
+                    "//productCategoriesStore.setParentCategory(parentCategoryID);\r",
+                    "\r",
+                    "productCategoriesStore.on('load', function(store, records){\r",
+                    "    productCategoriesStore.setData(records);\r",
+                    "    //if there are child categories for the parent category used in the get query\r",
+                    "    if(productCategoriesStore.getCount() > 0){\r",
+                    "        //push the new productCategoryList\r",
+                    "        self.pushProductCategoryList(productCategoriesStore, parentCategoryID, level);\r",
+                    "    }\r",
+                    "    //else there are no product categories under that parent, only products\r",
+                    "    else{\r",
+                    "        //push the productList\r",
+                    "        self.pushProductList(parentCategoryID);\r",
+                    "    }\r",
+                    "\r",
+                    "});"
+                ]
+            },
+            "designerId": "4f63e2e7-be48-413b-a267-006102b5faae"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "editButton",
+                "ref": "editButton",
+                "selector": "#editButton"
+            },
+            "designerId": "dcdd1fa7-19db-467e-81b8-e93eaf4117b7"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onEditButtonTap",
+                "fn": "onEditButtonTap",
+                "implHandler": [
+                    "if (this.getEditButton().getText() == \"Save\"){\r",
+                    "    var updatedRecord = this.getEditCustomerDetails().getRecord();\r",
+                    "    updatedRecord.setDirty();\r",
+                    "    Ext.getStore('Customers').add(updatedRecord);\r",
+                    "    Ext.getStore('Customers').sync();\r",
+                    "    this.getEditButton().setText(\"Edit\");\r",
+                    "    this.getDetailsNav().pop();\r",
+                    "}\r",
+                    "else{\r",
+                    "\r",
+                    "    var editCustomerDetails = Ext.create('Funzl.view.EditCustomerDetails');\r",
+                    "    editCustomerDetails.setRecord(this.getCustomerDetails().getRecord());\r",
+                    "\r",
+                    "    this.getDetailsNav().push(editCustomerDetails);\r",
+                    "    this.getEditButton().setText(\"Save\");\r",
+                    "}\r",
+                    "//*****set edit button to save//this.getEditButton().show();"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "editButton"
+            },
+            "designerId": "6d969d64-c770-49ca-810f-e9b5ffe46d93"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "editCustomerDetails",
+                "ref": "editCustomerDetails",
+                "selector": "editCustomerDetails"
+            },
+            "designerId": "d8f12f3b-61b8-4574-8da5-23844706ea4c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "productCategoryList",
+                "ref": "productCategoryList",
+                "selector": "productCategoryList"
+            },
+            "designerId": "c16616eb-890f-44c5-a3d3-3c075bf97c85"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "pushProductCategoryList",
+                "fn": "pushProductCategoryList",
+                "designer|params": [
+                    "productCategoriesStore, parentCategoryID, level"
+                ],
+                "implHandler": [
+                    "var detailsNav = this.getDetailsNav();\r",
+                    "\r",
+                    "\r",
+                    "//create unique productcategorylist\r",
+                    "var productCategoryList = Ext.create('Funzl.view.ProductCategoryList',{\r",
+                    "    store:productCategoriesStore,\r",
+                    "    itemId:\"productCategoryList\"+level,\r",
+                    "    level:level\r",
+                    "});\r",
+                    "\r",
+                    "//listen for onProductCategoryListItemTap for this productcategorylist by setting a new ref to productCategoryList from this itemId\r",
+                    "var refs = this.getRefs();\r",
+                    "refs['productCategoryList'+level] = 'productCategoryList';\r",
+                    "this.setRefs(refs);\r",
+                    "\r",
+                    "\r",
+                    "detailsNav.push(productCategoryList);\r",
+                    "\r",
+                    "//use the parent product category id when loading a level of product category below the first\r",
+                    "if (parentCategoryID){\r",
+                    "    productCategoriesStore.setParentCategory(parentCategoryID);\r",
+                    "}\r",
+                    ""
+                ]
+            },
+            "designerId": "48ff39d0-8067-4107-b853-a00ddd50031a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "pushProductList",
+                "fn": "pushProductList",
+                "designer|params": [
+                    "parentCategoryID"
+                ],
+                "implHandler": [
+                    "console.log(\"display product list!!!\");"
+                ]
+            },
+            "designerId": "6526e4aa-e8ec-4450-876b-1e27aeca314f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadNextProductLevel",
+                "fn": "loadNextProductLevel",
+                "designer|params": [
+                    "parentCategoryID, level"
+                ],
+                "implHandler": [
+                    "//create unique store for this productCategoryList\r",
+                    "var productCategoriesStore = Ext.create('Funzl.store.ProductCategories', {storeId: 'ProductCategories'+level});\r",
+                    "this.loadProductCategories(productCategoriesStore, parentCategoryID, level);\r",
+                    "productCategoriesStore.load();"
+                ]
+            },
+            "designerId": "6e9e8f01-0a7c-486f-a713-0a2da78183b3"
+        }
+    ]
+}

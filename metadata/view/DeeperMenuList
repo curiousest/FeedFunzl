@@ -1,0 +1,38 @@
+{
+    "type": "list",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DeeperMenuList",
+        "designer|userAlias": "deeperMenuList",
+        "designer|displayName": "MenuList",
+        "height": 768,
+        "id": null,
+        "itemId": "deeperMenuList",
+        "width": 340,
+        "store": "DeeperMenuList"
+    },
+    "id": "ExtBox1-ext-gen34940",
+    "designerId": "aaf590c3-0eda-473c-baae-79c4191cbdf9",
+    "cn": [
+        {
+            "type": "template",
+            "reference": {
+                "name": "itemTpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "itemTpl",
+                "implHandler": [
+                    "{title}"
+                ],
+                "designer|displayName": "itemTpl"
+            },
+            "designerId": "72d90e12-9a6c-4331-a344-fbb197899cd5"
+        }
+    ]
+}

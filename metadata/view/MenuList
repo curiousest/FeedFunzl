@@ -1,0 +1,38 @@
+{
+    "type": "list",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MenuList",
+        "designer|userAlias": "menuList",
+        "designer|displayName": "MenuList",
+        "height": 768,
+        "id": null,
+        "itemId": "menuList",
+        "width": 340,
+        "store": "MenuList"
+    },
+    "id": "ExtBox1-ext-gen2007",
+    "designerId": "d9f4e533-7210-4eb2-84ee-cfb11c36aa06",
+    "cn": [
+        {
+            "type": "template",
+            "reference": {
+                "name": "itemTpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "itemTpl",
+                "implHandler": [
+                    "{title}"
+                ],
+                "designer|displayName": "itemTpl"
+            },
+            "designerId": "c93e8954-6c98-42c1-88ce-ad46aa2ce959"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "url": "sdk/sencha-touch-debug.js"
+    },
+    "id": "ExtBox1-ext-gen67242",
+    "designerId": "831666da-cea2-484e-bf6d-22d6ef275993"
+}

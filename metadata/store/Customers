@@ -1,0 +1,49 @@
+{
+    "type": "jsonpstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Customers",
+        "designer|userAlias": "customers",
+        "autoLoad": true,
+        "autoSync": false,
+        "clearOnPageLoad": false,
+        "model": "Customer",
+        "remoteFilter": true,
+        "remoteSort": true,
+        "storeId": "Customers"
+    },
+    "id": "ExtBox1-ext-gen7399",
+    "designerId": "9d568019-ac12-45a6-9211-e589e12f01a3",
+    "cn": [
+        {
+            "type": "restproxy",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyRestProxy",
+                "url": "http://funzl-services.appspot.com/data/Customer"
+            },
+            "designerId": "e3fb6afe-a9a7-4662-aca0-f39cb94bbb71"
+        },
+        {
+            "type": "sorter",
+            "reference": {
+                "name": "sorters",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MySorter",
+                "property": "name"
+            },
+            "designerId": "a5a58086-650b-4803-8c3b-1b47a88a89fd"
+        }
+    ]
+}

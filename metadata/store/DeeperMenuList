@@ -1,0 +1,46 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DeeperMenuList",
+        "designer|userAlias": "deeperMenuList",
+        "autoLoad": null,
+        "data": "[{title: 'Customer Details'}, {title: 'Product Catalogue'}, {title: 'Orders'}, {title: 'Basket'}]",
+        "model": "MenuItem",
+        "storeId": "DeeperMenuList"
+    },
+    "id": "ExtBox1-ext-gen32293",
+    "designerId": "76024ea6-1ddf-4eea-85e3-80d585e14573",
+    "cn": [
+        {
+            "type": "ajaxproxy",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyAjaxProxy"
+            },
+            "designerId": "114c3144-50dc-4e9e-be51-3d03315c19d0",
+            "cn": [
+                {
+                    "type": "arrayreader",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyArrayReader"
+                    },
+                    "designerId": "b90de8a5-2b69-4ea1-89e3-4635281d2927"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "type": "application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Feed",
+            "MenuItem",
+            "Address",
+            "Contact",
+            "Product",
+            "ProductCategory"
+        ],
+        "stores": [
+            "Feed",
+            "MenuList",
+            "DeeperMenuList",
+            "Products",
+            "ProductCategories"
+        ],
+        "views": [
+            "CustomerDetails",
+            "MyContainer",
+            "CustomerList",
+            "MenuList",
+            "DeeperMenuList",
+            "ProductCategoryList",
+            "ProductList",
+            "EditCustomerDetails",
+            "ProductDetails"
+        ],
+        "name": "Funzl",
+        "controllers": [
+            "Customers"
+        ]
+    },
+    "id": "ExtBox1-ext-gen3672",
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "loader",
+            "reference": {
+                "name": "loader",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "Loader38",
+                "designer|displayName": "Loader",
+                "disableCaching": false,
+                "enabled": true
+            },
+            "designerId": "a4b53a03-bb38-4d1e-842b-f8ffd34dd95c"
+        }
+    ]
+}

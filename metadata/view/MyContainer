@@ -1,0 +1,104 @@
+{
+    "type": "container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyContainer",
+        "designer|initialView": true
+    },
+    "id": "ExtBox1-ext-gen5292",
+    "designerId": "c2d41001-6251-46d7-873e-adad67a5ebf6",
+    "cn": [
+        {
+            "type": "spacer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MySpacer",
+                "height": 768,
+                "left": 340,
+                "width": 3
+            },
+            "designerId": "0de0cf50-d91e-4f8a-9401-a7b4d8bcd238"
+        },
+        {
+            "type": "navigationview",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "CustomerDetailsNav",
+                "designer|userAlias": "customerDetailsNav",
+                "designer|displayName": "DetailsNav",
+                "height": 600,
+                "id": "detailsNav",
+                "itemId": "detailsNav",
+                "left": 343,
+                "width": 680
+            },
+            "designerId": "68391cc4-49a6-4ec1-aca0-7308f829ddf3",
+            "cn": [
+                {
+                    "type": "navigationbar",
+                    "reference": {
+                        "name": "navigationBar",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyNavigationBar"
+                    },
+                    "designerId": "6b8062e6-fdbe-48c7-8b18-0fdd0c48b81e",
+                    "cn": [
+                        {
+                            "type": "button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "align": "right",
+                                "designer|userClassName": "MyButton",
+                                "designer|displayName": "editButton",
+                                "hidden": true,
+                                "hideAnimation": null,
+                                "id": "editButton",
+                                "itemId": "editButton",
+                                "showAnimation": null,
+                                "iconAlign": "right",
+                                "text": "Edit"
+                            },
+                            "designerId": "89182642-2cb7-429b-8f32-305f2fc0f0fe"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "navigationview",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyNavigationView",
+                "designer|displayName": "MenuNav",
+                "height": 768,
+                "id": "menuNav",
+                "itemId": "menuNav",
+                "width": 340
+            },
+            "designerId": "048fdc02-d719-4df3-b237-f477c2cbf346"
+        }
+    ]
+}

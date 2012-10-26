@@ -1,0 +1,70 @@
+{
+    "type": "jsonpstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Products",
+        "designer|userAlias": "products",
+        "model": "Product",
+        "storeId": "Products"
+    },
+    "id": "ExtBox1-ext-gen10451",
+    "designerId": "0d3fb3eb-6b4d-4649-be53-a0fe34a287a4",
+    "cn": [
+        {
+            "type": "jsonpproxy",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyJsonPProxy2",
+                "url": "http://localhost/Products.json"
+            },
+            "designerId": "edc241e0-7094-4e87-a0e0-6b959fc71890",
+            "cn": [
+                {
+                    "type": "jsonreader",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyJsonReader2"
+                    },
+                    "designerId": "86525c01-358c-425e-809f-16f5c942762a"
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadProducts",
+                "fn": "loadProducts",
+                "designer|params": [
+                    "feedUrl, numPosts"
+                ],
+                "implHandler": [
+                    "console.log(\"Loading Products\");\r",
+                    "this.load({\r",
+                    "    params:{\r",
+                    "        q: feedUrl,\r",
+                    "        num: numPosts || 20\r",
+                    "    }\r",
+                    "});"
+                ]
+            },
+            "designerId": "1f541de4-ac9f-437f-8610-19fd962f2d31"
+        }
+    ]
+}

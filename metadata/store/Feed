@@ -1,0 +1,72 @@
+{
+    "type": "jsonpstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Feed",
+        "designer|userAlias": "feed",
+        "model": "Feed",
+        "storeId": "Feed"
+    },
+    "id": "ExtBox1-ext-gen16092",
+    "designerId": "d796d956-4cc9-4e25-a4a9-8536e50bdac1",
+    "cn": [
+        {
+            "type": "jsonpproxy",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyJsonPProxy1",
+                "url": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0"
+            },
+            "designerId": "6741e49b-80c9-4788-91bd-17c5017dcb31",
+            "cn": [
+                {
+                    "type": "jsonreader",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyJsonReader1",
+                        "rootProperty": "responseData.feed"
+                    },
+                    "designerId": "03b480b0-8aa8-490d-ad97-062cd17b13be"
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadFeed",
+                "fn": "loadFeed",
+                "designer|params": [
+                    "feedUrl",
+                    "numPosts"
+                ],
+                "implHandler": [
+                    "console.log('Loading feed');\r",
+                    "this.load({\r",
+                    "    params:{\r",
+                    "        q: feedUrl,\r",
+                    "        num: numPosts || 20\r",
+                    "    }\r",
+                    "});"
+                ]
+            },
+            "designerId": "5b1e4098-9a5c-45fc-ac3c-15cc2fa56532"
+        }
+    ]
+}

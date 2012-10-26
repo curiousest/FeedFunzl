@@ -1,0 +1,29 @@
+{
+    "type": "datamodel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MenuItem",
+        "designer|userAlias": "menuItem"
+    },
+    "id": "ExtBox1-ext-gen2787",
+    "designerId": "540b6c8a-e6e6-4ef5-bf34-928b69570ae2",
+    "cn": [
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field9",
+                "name": "title"
+            },
+            "designerId": "947619db-3b83-42a4-8006-67fdf0666af6"
+        }
+    ]
+}

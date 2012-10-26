@@ -1,0 +1,151 @@
+{
+    "type": "list",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CustomerList",
+        "designer|userAlias": "customerList",
+        "designer|displayName": "CustomerList",
+        "id": null,
+        "itemId": "customerList",
+        "store": "Customers"
+    },
+    "id": "ExtBox1-ext-gen2010",
+    "designerId": "93d1f4da-9d28-4a82-ac15-f62cf9ffa7ef",
+    "cn": [
+        {
+            "type": "toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyToolbar",
+                "docked": "bottom"
+            },
+            "designerId": "8c8dd850-0c38-40bf-b83c-a7955817c024",
+            "cn": [
+                {
+                    "type": "searchfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MySearchField",
+                        "designer|displayName": "CustomerSearch",
+                        "id": "customerSearch",
+                        "itemId": "mysearchfield",
+                        "label": "Field"
+                    },
+                    "designerId": "eceb8e96-7354-4233-bc48-f7194a959fc7",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "onCustomerSearchKeyup",
+                                "fn": "onCustomerSearchKeyup",
+                                "implHandler": [
+                                    "//**Taken from the listsearch Sencha example and slightly modified\r",
+                                    "\r",
+                                    "//get the store and the value of the field\r",
+                                    "var value = textfield.getValue(),\r",
+                                    "    store = this.getStore();\r",
+                                    "\r",
+                                    "//first clear any current filters on the store\r",
+                                    "store.clearFilter();\r",
+                                    "\r",
+                                    "//check if a value is set first, as if it isnt we dont have to do anything\r",
+                                    "if (value) {\r",
+                                    "    //the user could have entered spaces, so we must split them so we can loop through them all\r",
+                                    "    var searches = value.split(' '),\r",
+                                    "        regexps = [],\r",
+                                    "        i;\r",
+                                    "\r",
+                                    "    //loop them all\r",
+                                    "    for (i = 0; i < searches.length; i++) {\r",
+                                    "        //if it is nothing, continue\r",
+                                    "        if (!searches[i]) continue;\r",
+                                    "\r",
+                                    "        //if found, create a new regular expression which is case insenstive\r",
+                                    "        regexps.push(new RegExp(searches[i], 'i'));\r",
+                                    "    }\r",
+                                    "    \r",
+                                    "    store.setRemoteFilter(false);\r",
+                                    "\r",
+                                    "    //now filter the store by passing a method\r",
+                                    "    //the passed method will be called for each record in the store\r",
+                                    "    store.filterBy(function(record) {\r",
+                                    "        var matched = [];\r",
+                                    "\r",
+                                    "        //loop through each of the regular expressions\r",
+                                    "        for (i = 0; i < regexps.length; i++) {\r",
+                                    "            var search = regexps[i],\r",
+                                    "                didMatch = record.get('name').match(search);\r",
+                                    "\r",
+                                    "            //if it matched the first or last name, push it into the matches array\r",
+                                    "            matched.push(didMatch);\r",
+                                    "        }\r",
+                                    "\r",
+                                    "        //if nothing was found, return false (dont so in the store)\r",
+                                    "        if (regexps.length > 1 && matched.indexOf(false) != -1) {\r",
+                                    "            return false;\r",
+                                    "        } else {\r",
+                                    "            //else true true (show in the store)\r",
+                                    "            return matched[0];\r",
+                                    "        }\r",
+                                    "    });\r",
+                                    "    //store.filter(\"name\", value, true);\r",
+                                    "    //store.load();\r",
+                                    "    store.setRemoteFilter(true);\r",
+                                    "}"
+                                ],
+                                "name": "keyup"
+                            },
+                            "designerId": "d16a18fc-599c-46d2-9860-dfb52348edd8"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "template",
+            "reference": {
+                "name": "itemTpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "itemTpl",
+                "implHandler": [
+                    "{name}"
+                ],
+                "designer|displayName": "itemTpl"
+            },
+            "designerId": "cd0ebeb9-381c-416c-82d9-11bfa425fe10"
+        },
+        {
+            "type": "listpaging",
+            "reference": {
+                "name": "plugins",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyListPagingPlugin",
+                "autoPaging": true
+            },
+            "designerId": "9ec35f35-49ed-4b16-ae1c-9ba0340e3390"
+        }
+    ]
+}
