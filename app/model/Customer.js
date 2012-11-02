@@ -39,6 +39,12 @@ Ext.define('Funzl.model.Customer', {
             },
             {
                 name: 'website'
+            },
+            {
+                name: 'lat'
+            },
+            {
+                name: 'long'
             }
         ]
     }

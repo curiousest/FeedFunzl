@@ -15,8 +15,8 @@ Ext.define('Funzl.controller.CustomerListController', {
         }
     },
 
-	loadController: function() {
-        var customerList = Ext.create('Funzl.view.CustomerList', {title:'Customer List'});
+	loadController: function(listTitle) {
+        var customerList = Ext.create('Funzl.view.CustomerList', {title:listTitle});
 
         this.setViews([customerList]);
         

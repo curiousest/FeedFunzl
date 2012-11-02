@@ -30,7 +30,7 @@ Ext.define('Funzl.controller.DetailNavController', {
              if (menuItem.raw.title == 'Customers'){
                  if (self.detailsNav.pop()){
                      self.detailsNav.reset();
-                     self.pushControllersView('CustomerListController', 'Hidden');
+                     self.pushControllersView('CustomerTabPanelController', 'Hidden');
                  }
              }
              else if (menuItem.raw.title == "Default Catalogue"){
@@ -68,7 +68,7 @@ Ext.define('Funzl.controller.DetailNavController', {
         this.setViews([this.detailsNav]);
 
         //load the first view/view controller, the customer list
-        this.pushControllersView('CustomerListController', 'Hidden');
+        this.pushControllersView('CustomerTabPanelController', 'Hidden');
 	},
 	
 	//load the controller and push the view it generates onto the buttoned navigation view

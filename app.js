@@ -46,13 +46,16 @@ Ext.application({
         'CustomerMenuListController',
         'DetailNavController',
         'Customers',
+        'CustomerTabPanelController',
         'CustomerListController',
+        'CustomerListMapController',
         'CustomerDetailsController',
         'EditCustomerDetailsController',
         'ProductCategoryListController',
         'ProductListController',
         'ProductDetailsController'
     ],
+
 
     //this is called before the controllers' launch functions
     launch: function() {
