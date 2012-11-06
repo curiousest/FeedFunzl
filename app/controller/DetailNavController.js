@@ -17,12 +17,14 @@ Ext.define('Funzl.controller.DetailNavController', {
 	    
 	    var self = this;
 	    
+	    var size = Ext.getBody().getSize();
+	    
 	    this.detailsNav = Ext.create('Funzl.view.ButtonedNavigationView', {
-            height: 600,
+            height: Math.min(size.height, size.width),
             id: 'detailsNav',
             itemId: 'detailsNav',
-            left: 343,
-            width: 680
+            left: Math.floor(Math.max(size.height, size.width) / 3),
+            width: Math.floor(Math.max(size.height, size.width) * 2 / 3)
         });
 	    
 	    //listener for when menu items are selected in one of the menu lists

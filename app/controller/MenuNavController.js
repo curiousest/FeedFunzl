@@ -16,12 +16,15 @@ Ext.define('Funzl.controller.MenuNavController', {
 	},
 	
 	launch: function() {
+	    
+	    var size = Ext.getBody().getSize();
+	    
 	    this.menuNav = Ext.create('Ext.NavigationView', {
-	        height: 768,
+	        height: Math.min(size.height, size.width),
             id: 'menuNav',
             title: 'ttiel',
             itemId: 'menuNav',
-            width: 340
+            width: Math.floor(Math.max(size.height, size.width) / 3)
 	    });
 	    this.setViews([this.menuNav]);
         this.pushControllersView('MenuListController');

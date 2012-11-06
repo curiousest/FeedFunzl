@@ -45,7 +45,7 @@ Ext.application({
         'MenuListController',
         'CustomerMenuListController',
         'DetailNavController',
-        'Customers',
+        'Main',
         'CustomerTabPanelController',
         'CustomerListController',
         'CustomerListMapController',
