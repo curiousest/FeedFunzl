@@ -36,11 +36,11 @@ Ext.define('Funzl.controller.DetailNavController', {
                  }
              }
              else if (menuItem.raw.title == "Default Catalogue"){
-                 self.pushControllersView('ProductCategoryListController', 'Hidden', 
+                 self.pushControllersView('ProductCategoryListController', 'Scan Barcode', 
                      {internalId: 'c7280f44-dc93-42ac-81e3-6442b01582d8', data:{name: 'Product Categories'}});
              }
              else if (menuItem.raw.title == 'Product Catalogue') {
-                 self.pushControllersView('ProductCategoryListController', 'Hidden', 
+                 self.pushControllersView('ProductCategoryListController', 'Scan Barcode', 
                      {internalId: 'c7280f44-dc93-42ac-81e3-6442b01582d8', data:{name: 'Product Categories'}});
              }
          });
@@ -58,11 +58,27 @@ Ext.define('Funzl.controller.DetailNavController', {
          });
          
          application.addListener('productCategorySelected', function(productCategory) {
-             self.pushControllersView('ProductCategoryListController', 'Hidden', productCategory);
+             self.pushControllersView('ProductCategoryListController', 'Scan Barcode', productCategory);
          });
          
          application.addListener('productSelected', function(product) {
              self.pushControllersView('ProductDetailsController', 'Hidden', product);
+         });
+         
+         application.addListener('scanBarcodeButtonPressed', function(product) {
+             var code;
+             if (window && window.plugins && window.plugins.barcodeScanner && window.plugins.barcodeScanner.scan) {
+                 window.plugins.barcodeScanner.scan(function(result){
+                     code = result.text;
+                 });
+             }
+             //if the barcode scanner isn't supported, type the barcode number
+             else {
+                 code = prompt ("Enter the barcode number.");
+             }
+             
+             //try pushing a product details view
+             console.log(code);
          });
 	},
 	

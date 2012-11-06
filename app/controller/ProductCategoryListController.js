@@ -65,6 +65,11 @@ Ext.define('Funzl.controller.ProductCategoryListController', {
 				holdingContainer.add(self.getApplication().getController('ProductListController').loadController(parentCategory));
             }
         });
+        
+        holdingContainer.addListener('topRightButtonPressed', function(menuItem) {
+	        self.getApplication().fireEvent('scanBarcodeButtonPressed');
+	    });
+        
         return holdingContainer;
 	},
 
