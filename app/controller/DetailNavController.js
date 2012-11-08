@@ -12,6 +12,28 @@ Ext.define('Funzl.controller.DetailNavController', {
         detailsNav: null,
 
     },
+    
+    	
+	//searches for a product with the corresponding code.
+	//pushes the product detail view if found, alerts w/ message if not found.
+	//pushes the first product in the records returned by the query
+	searchProductPush: function(code) {
+         var self = this;
+         var newFilter = {}
+	     newFilter['property'] = 'code';
+	     newFilter['value'] = code;
+         var productStore = Ext.create('Funzl.store.Products', {filters:newFilter});
+         
+         Ext.getStore('Products').on('load', function(store, records){
+             //if records is empty, there is no product with that code
+             if (records.length == 0) {
+                 alert("Product with code " + code + " not found.");
+             }
+             else {
+                 self.pushControllersView('ProductDetailsController', 'Hidden', records['0']);
+             }
+         });
+	},
 	
 	init: function(application){
 	    
@@ -66,19 +88,24 @@ Ext.define('Funzl.controller.DetailNavController', {
          });
          
          application.addListener('scanBarcodeButtonPressed', function(product) {
-             var code;
-             if (window && window.plugins && window.plugins.barcodeScanner && window.plugins.barcodeScanner.scan) {
-                 window.plugins.barcodeScanner.scan(function(result){
-                     code = result.text;
-                 });
+             var code = "error";
+             
+			if ((navigator.userAgent.match(/Android/i))) {
+                 if (window && window.plugins && window.plugins.barcodeScanner && window.plugins.barcodeScanner.scan) {
+
+                     window.plugins.barcodeScanner.scan(function(result){
+                         code = result.text;
+                         self.searchProductPush(code);
+                     }, function(error) {
+                        alert("Scanning failed: " + error);
+                     });
+                 }
              }
              //if the barcode scanner isn't supported, type the barcode number
              else {
                  code = prompt ("Enter the barcode number.");
+                 self.searchProductPush(code);
              }
-             
-             //try pushing a product details view
-             console.log(code);
          });
 	},
 	
