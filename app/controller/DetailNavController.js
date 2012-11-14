@@ -40,14 +40,27 @@ Ext.define('Funzl.controller.DetailNavController', {
 	    var self = this;
 	    
 	    var size = Ext.getBody().getSize();
+
 	    
-	    this.detailsNav = Ext.create('Funzl.view.ButtonedNavigationView', {
-            height: Math.min(size.height, size.width),
-            id: 'detailsNav',
-            itemId: 'detailsNav',
-            left: Math.floor(Math.max(size.height, size.width) / 3),
-            width: Math.floor(Math.max(size.height, size.width) * 2 / 3)
-        });
+	    //size the menu navigation view appropriately based on single or double pane device preference
+	    if (self.singlePaned) {
+	        this.detailsNav = Ext.create('Funzl.view.ButtonedNavigationView', {
+                height: Math.min(size.height, size.width),
+                id: 'detailsNav',
+                itemId: 'detailsNav',
+                width: Math.max(size.height, size.width)
+            }); 
+	    }
+	    else {
+    	   this.detailsNav = Ext.create('Funzl.view.ButtonedNavigationView', {
+                height: Math.min(size.height, size.width),
+                id: 'detailsNav',
+                itemId: 'detailsNav',
+                left: Math.floor(Math.max(size.height, size.width) / 3),
+                width: Math.floor(Math.max(size.height, size.width) * 2 / 3)
+            });  
+        }
+        
 	    
 	    //listener for when menu items are selected in one of the menu lists
 	    application.addListener('menuItemSelected', function(menuItem) {
@@ -107,6 +120,12 @@ Ext.define('Funzl.controller.DetailNavController', {
                  self.searchProductPush(code);
              }
          });
+         
+         if (self.singlePaned) {
+            application.addListener('customerSelected', function(customer) {
+                self.pushControllersView('CustomerMenuListController', customer);
+            });
+         }
 	},
 	
 	launch: function() {
