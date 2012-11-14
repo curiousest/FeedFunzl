@@ -30,18 +30,18 @@ Ext.define('Funzl.controller.Main', {
 
     init: function(application) {
         if (navigator.userAgent.match(/Android/i)){
-            singlePaned = true;
+            this.singlePaned = true;
         }
         this.detailNavController = this.getApplication().getController('DetailNavController');
         
-        if (!singlePaned)
+        if (!this.singlePaned)
             this.menuNavController = this.getApplication().getController('MenuNavController');
 
     },
 
     launch: function() {
         var size = Ext.getBody().getSize();
-        if (singlePaned) {
+        if (this.singlePaned) {
             this.setViews([Ext.create('Ext.Container', {
                     //the fullscreen: true config option sets the view to display in the front of the application's viewport
                     fullscreen: true,
