@@ -42,7 +42,10 @@ Ext.define('Funzl.controller.DetailNavController', {
 	    var self = this;
 	    
 	    var size = Ext.getBody().getSize();
-
+	    
+	    if (navigator.userAgent.match(/Android/i)){
+            this.singlePaned = true;
+        }
 	    
 	    //size the menu navigation view appropriately based on single or double pane device preference
 	    if (self.singlePaned) {

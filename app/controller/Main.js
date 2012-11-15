@@ -33,7 +33,6 @@ Ext.define('Funzl.controller.Main', {
             this.singlePaned = true;
         }
         this.detailNavController = this.getApplication().getController('DetailNavController');
-        this.detailNavController.singlePaned = this.singlePaned;
         
         if (!this.singlePaned)
             this.menuNavController = this.getApplication().getController('MenuNavController');
