@@ -6,7 +6,7 @@ Ext.define('Funzl.controller.MenuListController', {
     config: {
 
         refs: {
-            productList: 'menuList',
+            productList: 'menuList'
         },
 
         control: {
@@ -16,7 +16,7 @@ Ext.define('Funzl.controller.MenuListController', {
         }
     },
 	
-	loadController: function() {
+	loadController: function(customer) {
         var menuList = Ext.create('Funzl.view.MenuList', {title:'Funzl Main Menu'});
 		return menuList;
 	},

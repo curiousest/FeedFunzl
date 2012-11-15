@@ -7,6 +7,7 @@ Ext.define('Funzl.controller.CustomerMenuListController', {
 
         refs: {
             customerMenuList: 'customerMenuList',
+            customer: null
         },
 
         control: {
@@ -16,13 +17,14 @@ Ext.define('Funzl.controller.CustomerMenuListController', {
         }
     },
 	
-	loadController: function() {
+	loadController: function(customer) {
         var menuList = Ext.create('Funzl.view.CustomerMenuList', {title:'Funzl Main Menu'});
+        this.customer = customer;
 		return menuList;
 	},
 
     onCustomerMenuListItemTap: function(dataview, index, target, record, e, options) {
-		this.getApplication().fireEvent('menuItemSelected', record);
+		this.getApplication().fireEvent('menuItemSelected', record, this.customer);
     }
     
 });

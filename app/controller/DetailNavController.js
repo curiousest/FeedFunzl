@@ -10,6 +10,8 @@ Ext.define('Funzl.controller.DetailNavController', {
     config: {
         //detailNavController's navigation view
         detailsNav: null,
+        
+        singlePaned: false
 
     },
     
@@ -63,10 +65,13 @@ Ext.define('Funzl.controller.DetailNavController', {
         
 	    
 	    //listener for when menu items are selected in one of the menu lists
-	    application.addListener('menuItemSelected', function(menuItem) {
+	    application.addListener('menuItemSelected', function(menuItem, passedItem) {
              if (menuItem.raw.title == 'Customers'){
                  if (self.detailsNav.pop()){
                      self.detailsNav.reset();
+                     self.pushControllersView('CustomerTabPanelController', 'Hidden');
+                 }
+                 else if (self.singlePaned) {
                      self.pushControllersView('CustomerTabPanelController', 'Hidden');
                  }
              }
@@ -78,9 +83,12 @@ Ext.define('Funzl.controller.DetailNavController', {
                  self.pushControllersView('ProductCategoryListController', 'Scan Barcode', 
                      {internalId: 'c7280f44-dc93-42ac-81e3-6442b01582d8', data:{name: 'Product Categories'}});
              }
+             else if (menuItem.raw.title == 'Customer Details') {
+                 self.pushControllersView('CustomerDetailsController', 'Edit', passedItem);
+             }
          });
          
-         application.addListener('customerSelected', function(customer) {
+         application.addListener('customerDetails', function(customer) {
              self.pushControllersView('CustomerDetailsController', 'Edit', customer);
          });
          
@@ -123,7 +131,12 @@ Ext.define('Funzl.controller.DetailNavController', {
          
          if (self.singlePaned) {
             application.addListener('customerSelected', function(customer) {
-                self.pushControllersView('CustomerMenuListController', customer);
+                self.pushControllersView('CustomerMenuListController', 'Hidden', customer);
+            });
+         }
+         else {
+             application.addListener('customerSelected', function(customer) {
+                self.pushControllersView('CustomerDetailsController', 'Edit', customer);
             });
          }
 	},
@@ -131,8 +144,13 @@ Ext.define('Funzl.controller.DetailNavController', {
 	launch: function() {
         this.setViews([this.detailsNav]);
 
-        //load the first view/view controller, the customer list
-        this.pushControllersView('CustomerTabPanelController', 'Hidden');
+        if (this.singlePaned) {
+            this.pushControllersView('MenuListController', 'Hidden');
+        }
+        else {
+            //load the first view/view controller, the customer list
+            this.pushControllersView('CustomerTabPanelController', 'Hidden');
+        }
 	},
 	
 	//load the controller and push the view it generates onto the buttoned navigation view

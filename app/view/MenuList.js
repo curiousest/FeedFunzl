@@ -18,9 +18,7 @@ Ext.define('Funzl.view.MenuList', {
     alias: 'widget.menuList',
 
     config: {
-        height: 768,
         itemId: 'menuList',
-        width: 340,
         store: 'MenuList',
         itemTpl: [
             '{title}'

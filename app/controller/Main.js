@@ -40,6 +40,7 @@ Ext.define('Funzl.controller.Main', {
     },
 
     launch: function() {
+
         var size = Ext.getBody().getSize();
         if (this.singlePaned) {
             this.setViews([Ext.create('Ext.Container', {
@@ -47,7 +48,7 @@ Ext.define('Funzl.controller.Main', {
                     fullscreen: true,
                   
 
-                    items: [this.detailNavController.getViews()]
+                    items: [{}].concat(this.detailNavController.getViews())
                 })]);
         }
         else {

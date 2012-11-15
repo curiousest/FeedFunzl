@@ -5,29 +5,36 @@ Ext.define('Funzl.controller.MenuNavController', {
     config: {
         //menuNavController's navigation view
         menuNav: null,
-
+        
+        singlePaned: false
     },
     
     init: function(application){
 	    var self = this;
-	    application.addListener('customerSelected', function(customer) {
-             self.pushControllersView('CustomerMenuListController', customer);
-        });
+	    if (navigator.userAgent.match(/Android/i))
+	        this.singlePaned = true;
+	    if (!this.singlePaned){
+    	    application.addListener('customerSelected', function(customer) {
+                 self.pushControllersView('CustomerMenuListController', customer);
+            });
+        }
 	},
 	
 	launch: function() {
 	    
 	    var size = Ext.getBody().getSize();
 	    
-	    this.menuNav = Ext.create('Ext.NavigationView', {
-	        height: Math.min(size.height, size.width),
-            id: 'menuNav',
-            title: 'ttiel',
-            itemId: 'menuNav',
-            width: Math.floor(Math.max(size.height, size.width) / 3)
-	    });
-	    this.setViews([this.menuNav]);
-        this.pushControllersView('MenuListController');
+	    if(!this.singlePaned) {
+    	    this.menuNav = Ext.create('Ext.NavigationView', {
+    	        height: Math.min(size.height, size.width),
+                id: 'menuNav',
+                title: 'ttiel',
+                itemId: 'menuNav',
+                width: Math.floor(Math.max(size.height, size.width) / 3)
+    	    });
+    	    this.setViews([this.menuNav]);
+            this.pushControllersView('MenuListController');
+        }
 	},
     
     //load the controller and push the view it generates onto the buttoned navigation view
