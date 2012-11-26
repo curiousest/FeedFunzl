@@ -1,0 +1,3 @@
+[submodule "touch"]
+	path = touch
+	url = ssh://git@86.47.218.57:7999/JS/sencha-touch.git
